@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
 
 env:
-    REGISTRY: index.docker.io
+    REGISTRY: docker.io
+    REPOSITORY: bjssconstantinb/gh-actions
 
 jobs:
   push_to_registry:
@@ -26,11 +27,11 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-    #   - name: Extract metadata (tags, labels) for Docker
-    #     id: meta
-    #     uses: docker/metadata-action@v5
-    #     with:
-    #       images: my-docker-hub-namespace/my-docker-hub-repository
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REPOSITORY }}
 
     #   - name: Build and push Docker image
     #     id: push
