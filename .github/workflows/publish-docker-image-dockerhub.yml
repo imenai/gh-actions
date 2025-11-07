@@ -33,15 +33,15 @@ jobs:
         with:
           images: ${{ env.REPOSITORY }}
 
-    #   - name: Build and push Docker image
-    #     id: push
-    #     uses: docker/build-push-action@v6
-    #     with:
-    #       context: .
-    #       file: ./Dockerfile
-    #       push: true
-    #       tags: ${{ steps.meta.outputs.tags }}
-    #       labels: ${{ steps.meta.outputs.labels }}
+      - name: Build and push Docker image
+        id: push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 
     #   - name: Generate artifact attestation
     #     uses: actions/attest-build-provenance@v3
