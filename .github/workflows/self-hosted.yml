@@ -1,0 +1,17 @@
+name: Run on self-hosted runner
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  self-hosted-job:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Run a script
+        run: echo "This job is running on a self-hosted runner!"
